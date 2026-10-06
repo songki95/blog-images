@@ -396,3 +396,32 @@ a.comment-link {
   }
   .ba-post table { font-size: 0.88em; }
 }
+
+
+/* --- v2.1: 헤더 이미지가 제목을 대체하는 경우(Contempo) 높이 제한 보강 --- */
+.Header .header-widget img,
+#Header1 img,
+.header-widget img,
+.centered-top-container .Header img {
+  max-height: 150px !important;
+  width: auto !important;
+  max-width: min(920px, 100%) !important;
+  height: auto !important;
+  object-fit: contain !important;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+@media (max-width: 800px) {
+  .Header .header-widget img,
+  #Header1 img,
+  .header-widget img {
+    max-height: 96px !important;
+  }
+}
+
+/* 추천 게시물(FeaturedPost)이 본문 목록과 같은 글을 중복 노출할 때:
+   레이아웃에서 가젯을 제거하는 것이 정석. 임시로 숨기려면 아래 주석을 해제하세요.
+#FeaturedPost1, .widget.FeaturedPost { display: none !important; }
+*/
