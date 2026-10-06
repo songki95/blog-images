@@ -1,0 +1,398 @@
+/* ============================================================
+   goodfortunethisblog — Contempo 커스텀 CSS v2
+   적용: 테마 > 맞춤설정 > 고급 > CSS 추가 (기존 CSS 전부 교체)
+   팔레트: cream #FAF6EE / sage #8FA88C / gold #C9A248 / ink #2D3730
+   안전: 레이아웃 그리드 유지. 신고하기·Blogger 저작자표시는 숨기지 않음(약관).
+   ============================================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+:root {
+  --ba-cream: #FAF6EE;
+  --ba-sage: #8FA88C;
+  --ba-sage-dark: #5A785F;
+  --ba-gold: #C9A248;
+  --ba-gold-soft: #E8D08C;
+  --ba-ink: #2D3730;
+  --ba-muted: #6B7280;
+  --ba-card: #FFFFFF;
+  --ba-border: #E5E8E3;
+  --ba-font: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ========== 전체 ========== */
+body {
+  background-color: var(--ba-cream) !important;
+  color: var(--ba-ink);
+  font-family: var(--ba-font);
+}
+
+/* ========== 상단 바 / sticky ========== */
+.centered-top-container,
+.centered-top-placeholder {
+  background-color: rgba(250, 246, 238, 0.96) !important;
+  border-bottom: 1px solid var(--ba-gold-soft);
+}
+.centered-top-container .svg-icon-24,
+.centered-top-placeholder .svg-icon-24 {
+  fill: var(--ba-ink) !important;
+}
+
+/* ========== 헤더 배너 크기 정리 ========== */
+#header,
+.Header {
+  margin: 8px auto 4px !important;
+  max-width: 920px;
+}
+.Header .header-image-wrapper {
+  display: block !important; /* 이미지로 제목 대체 중 */
+}
+.Header img,
+.Header .header-image-wrapper img {
+  max-height: 160px !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 0 auto;
+  display: block;
+}
+/* 텍스트 제목이 이미지와 함께 보이면 숨김(이미지만 사용 시) */
+.Header.replaced h1,
+.Header .titlewrapper,
+.Header .descriptionwrapper {
+  /* 이미지 대체 모드에서는 Blogger가 replaced 클래스를 씀 — 과도한 여백만 줄임 */
+}
+.Header h1,
+.Header h1 a {
+  color: var(--ba-ink) !important;
+  font-family: var(--ba-font) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.Header .description {
+  color: var(--ba-sage-dark) !important;
+}
+
+/* ========== 페이지 목록(메뉴) ========== */
+.blog-name .PageList,
+#PageList1,
+.PageList {
+  margin-top: 6px !important;
+  padding-top: 4px !important;
+}
+.PageList .widget-content,
+.PageList ul {
+  text-align: center;
+}
+.PageList li,
+.PageList li a,
+.PageList .tabs li a {
+  color: var(--ba-sage-dark) !important;
+  font-family: var(--ba-font) !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: -0.01em;
+  opacity: 1 !important;
+  padding: 6px 12px !important;
+}
+.PageList li a:hover {
+  color: var(--ba-gold) !important;
+}
+.PageList li.selected a,
+.PageList .selected a {
+  color: var(--ba-ink) !important;
+  border-bottom: 2px solid var(--ba-gold) !important;
+}
+
+/* ========== 글 카드 ========== */
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  background: var(--ba-card) !important;
+  border-radius: 14px !important;
+  border: 1px solid var(--ba-border);
+  box-shadow: 0 1px 3px rgba(45, 55, 48, 0.05);
+  padding: 28px 32px !important;
+}
+.post-outer-container {
+  margin-bottom: 20px !important;
+}
+
+/* 제목 */
+.post-title,
+.post-title a,
+.post-title a:visited,
+.post-title a:hover {
+  color: var(--ba-ink) !important;
+  font-family: var(--ba-font) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em;
+  line-height: 1.35 !important;
+}
+.post-title a {
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem) !important;
+}
+
+/* 날짜·바이라인 */
+.byline.post-timestamp,
+.byline.post-timestamp a {
+  color: var(--ba-muted) !important;
+  font-size: 0.88rem !important;
+}
+
+/* 홈 카드: 라벨 칩 숨김(사이드바 태그로 충분) */
+.blog-posts .byline.post-labels,
+.FeaturedPost .byline.post-labels {
+  display: none !important;
+}
+/* 본문 글에서는 라벨을 작고 단정하게 */
+.item .byline.post-labels a,
+.item-view .byline.post-labels a {
+  background: #f0f4ef !important;
+  border: 1px solid var(--ba-border) !important;
+  color: var(--ba-sage-dark) !important;
+  border-radius: 999px !important;
+  font-size: 0.8rem !important;
+  padding: 2px 10px !important;
+}
+
+/* 공유 버튼: 존재는 유지, 시각적 무게만 줄임 */
+.post-share-buttons .sharing-button {
+  opacity: 0.45;
+}
+.post-share-buttons .sharing-button:hover {
+  opacity: 1;
+}
+
+/* ========== 홈 스니펫: 긴 '3줄 요약' 밀도 완화 ========== */
+.post-snippet,
+.snippet-container,
+.r-snippet-container {
+  max-height: 4.8em !important; /* ~3줄 */
+  overflow: hidden !important;
+  position: relative;
+  color: var(--ba-muted) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+/* 페이드 아웃으로 잘림 표시 */
+.post-snippet::after,
+.r-snippet-container::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1.6em;
+  background: linear-gradient(transparent, var(--ba-card));
+  pointer-events: none;
+}
+
+/* 썸네일 */
+.post .thumb,
+.post-thumbnail,
+.snippet-thumbnail img,
+.post-body img.thumbnail {
+  border-radius: 10px !important;
+}
+
+/* ========== 본문 ========== */
+.post-body {
+  font-family: var(--ba-font);
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--ba-ink);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.post-body p { margin: 0 0 1.05em; }
+.post-body h2 {
+  font-size: 1.35em;
+  line-height: 1.4;
+  margin: 2em 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--ba-gold);
+  color: var(--ba-ink);
+}
+.post-body h3 {
+  font-size: 1.12em;
+  margin: 1.45em 0 0.35em;
+  color: var(--ba-sage-dark);
+}
+.post-body a { color: var(--ba-sage-dark); }
+.post-body a:hover { color: var(--ba-gold); }
+
+/* 파이프라인 글 보강 */
+.ba-post blockquote {
+  background: #f4f7f4 !important;
+  border: 1px solid #c5d4c3 !important;
+  border-left: 4px solid var(--ba-sage) !important;
+  border-radius: 12px !important;
+}
+.ba-post table { border-collapse: collapse; width: 100%; }
+.ba-post th {
+  background: #f0f4ef !important;
+  border-color: var(--ba-border) !important;
+}
+.ba-post td { border-color: var(--ba-border) !important; }
+.ba-post img { border-radius: 10px; }
+
+/* 페이지 본문: 상단 페이지 제목과 본문 H2 중복 시 첫 H2만 살짝 완화는 어렵므로
+   본문 첫 여백만 조정 */
+.static_page .post-body,
+.page .post-body {
+  margin-top: 0.4em;
+}
+
+/* ========== 댓글·더보기 링크 ========== */
+.byline.post-comment-link a,
+.jump-link a,
+a.comment-link {
+  color: var(--ba-sage-dark) !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+}
+.jump-link a {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid var(--ba-sage);
+  border-radius: 999px;
+  color: var(--ba-sage-dark) !important;
+  background: #f4f7f4;
+}
+.jump-link a:hover {
+  background: var(--ba-sage);
+  color: #fff !important;
+  border-color: var(--ba-sage);
+}
+
+/* ========== 사이드바 ========== */
+.sidebar-container {
+  background-color: var(--ba-cream) !important;
+}
+.sidebar .widget {
+  background: var(--ba-card);
+  border-radius: 12px;
+  border: 1px solid var(--ba-border);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.sidebar .widget h2,
+.sidebar .widget h3.title,
+.sidebar .title {
+  color: var(--ba-sage-dark) !important;
+  font-family: var(--ba-font);
+  font-weight: 700;
+  font-size: 0.95rem !important;
+  border-bottom: 1px solid var(--ba-gold-soft);
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+/* 프로필 */
+.Profile img.profile-img {
+  border-radius: 50% !important;
+  border: 2px solid var(--ba-gold-soft);
+}
+.Profile .profile-link,
+.Profile dt,
+.Profile dd {
+  font-family: var(--ba-font);
+  color: var(--ba-ink);
+}
+/* 라벨(카테고리) */
+.list-label-widget-content a,
+.Label li a,
+.label-size a {
+  background: #f0f4ef !important;
+  border-radius: 999px !important;
+  padding: 3px 12px !important;
+  color: var(--ba-sage-dark) !important;
+  border: 1px solid var(--ba-border) !important;
+  font-weight: 500;
+}
+/* 보관함: 시각적 무게 줄임(숨기지는 않음 — 레이아웃에서 제거 권장) */
+.BlogArchive li {
+  font-size: 0.9rem;
+  color: var(--ba-muted);
+}
+
+/* 신고하기: 숨기지 않음. 작고 중립적으로만 */
+.ReportAbuse,
+#ReportAbuse1 {
+  opacity: 0.55;
+  font-size: 0.8rem !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 4px 8px !important;
+}
+.ReportAbuse .title,
+.ReportAbuse a.report_abuse {
+  color: var(--ba-muted) !important;
+  font-weight: 400 !important;
+  border: none !important;
+  font-size: 0.8rem !important;
+}
+.ReportAbuse:hover { opacity: 0.9; }
+
+/* ========== 푸터 저작자 표시: 숨기지 않음, 약하게 ========== */
+.Attribution,
+#Attribution1 {
+  opacity: 0.5;
+  font-size: 0.75rem !important;
+  color: var(--ba-muted) !important;
+  margin-top: 2em !important;
+}
+.Attribution a { color: var(--ba-muted) !important; }
+.Attribution .image-attribution {
+  /* 배경 사진을 제거했어도 테마 기본 크레딧이 남을 수 있음 — 유지하되 약하게 */
+  font-size: 0.7rem !important;
+}
+
+/* ========== 빈 광고 영역 ========== */
+.vertical-ad-container.no-items,
+#ads.no-items {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ========== PopularPosts (있으면) ========== */
+.PopularPosts {
+  background: var(--ba-card) !important;
+  border-radius: 14px;
+  border: 1px solid var(--ba-border);
+  padding: 24px 28px !important;
+}
+.PopularPosts .post-title a {
+  color: var(--ba-ink) !important;
+  font-family: var(--ba-font) !important;
+}
+
+/* ========== 모바일 ========== */
+@media (max-width: 800px) {
+  .Header img,
+  .Header .header-image-wrapper img {
+    max-height: 110px !important;
+  }
+  #page_body .FeaturedPost,
+  .Blog .blog-posts .post-outer-container {
+    padding: 18px 16px !important;
+    border-radius: 10px;
+  }
+  .post-body {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .PageList li a {
+    font-size: 0.85rem !important;
+    padding: 4px 8px !important;
+  }
+  .post-snippet,
+  .r-snippet-container {
+    max-height: 4.6em !important;
+  }
+  .ba-post table { font-size: 0.88em; }
+}
