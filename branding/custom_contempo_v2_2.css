@@ -25,7 +25,7 @@
 /* ============================================================
    v2.2 fixes
    1) Contempo 배경 사진 제거 후 남는 회색 밴드(.bg-photo + overlay) → cream
-   2) 헤더 배너: 콘텐츠 칼럼 폭(~720px)으로 키우고 상단 여백 축소
+   2) 헤더 배너: 콘텐츠 칼럼 폭(~760px)으로 키우고 상단 여백 축소
    ============================================================ */
 
 /* --- 1) 전체 배경을 cream으로 통일 --- */
@@ -53,15 +53,21 @@ html, body {
   display: none !important;
   content: none !important;
 }
-/* 미묘한 cream→sage 그라데이션 (상단만, 선택) */
 .bg-photo {
-  background: linear-gradient(180deg, #FAF6EE 0%, #F3F0E6 55%, #EAF0E8 100%) !important;
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
 }
 .page,
 .page_body,
 .centered {
-  background: transparent !important;
+  background: #FAF6EE !important;
 }
+
+/* v2.2 band kill — bg-photo 높이(480px) 아래까지 cream 유지 */
+.bg-photo-container { height: 0 !important; min-height: 0 !important; overflow: hidden !important; }
+.page_body { background: #FAF6EE !important; }
+.centered-bottom { background: transparent !important; }
+
 
 /* --- 2) 헤더 배너 크게 --- */
 .centered-top-container,
@@ -78,7 +84,7 @@ html, body {
 .header-widget,
 #Header1 {
   margin: 4px auto 2px !important;
-  max-width: 720px !important;
+  max-width: 760px !important;
   width: 100% !important;
   text-align: center;
 }
@@ -87,7 +93,7 @@ html, body {
 a.header-image-wrapper {
   display: block !important;
   width: 100% !important;
-  max-width: 720px !important;
+  max-width: 760px !important;
   margin: 0 auto !important;
 }
 .Header img,
@@ -98,7 +104,7 @@ a.header-image-wrapper img {
   /* max-height 제한 제거 — 폭 기준으로 키움 */
   max-height: none !important;
   width: 100% !important;
-  max-width: 720px !important;
+  max-width: 760px !important;
   height: auto !important;
   object-fit: contain !important;
   border-radius: 12px;
