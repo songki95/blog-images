@@ -1,0 +1,199 @@
+/* ============================================================
+   goodfortunethisblog — Contempo 테마 커스텀 CSS
+   적용: 테마 > 맞춤설정 > 고급 > CSS 추가
+   팔레트: cream #FAF6EE / sage #8FA88C / gold #C9A248 / ink #2D3730
+   안전: 레이아웃 구조(그리드·사이드바)는 건드리지 않음
+   ============================================================ */
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+:root {
+  --ba-cream: #FAF6EE;
+  --ba-sage: #8FA88C;
+  --ba-sage-dark: #5A785F;
+  --ba-gold: #C9A248;
+  --ba-gold-soft: #E8D08C;
+  --ba-ink: #2D3730;
+  --ba-muted: #6B7280;
+  --ba-card: #FFFFFF;
+  --ba-border: #E5E8E3;
+  --ba-font: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* --- 전체 배경·본문 폰트 --- */
+body {
+  background-color: var(--ba-cream) !important;
+  color: var(--ba-ink);
+  font-family: var(--ba-font);
+}
+
+/* Contempo 배경 사진 위에 은은한 크림 톤 (사진이 있으면 약하게만) */
+.bg-photo-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 246, 238, 0.35);
+  pointer-events: none;
+}
+
+/* --- 헤더 --- */
+.Header h1,
+.Header h1 a,
+.Header h1 a:visited,
+.Header h1 a:hover {
+  color: var(--ba-ink) !important;
+  font-family: var(--ba-font) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.Header .description {
+  color: var(--ba-sage-dark) !important;
+  font-family: var(--ba-font);
+}
+
+/* 상단 sticky 바 */
+.centered-top-container,
+.centered-top-placeholder {
+  background-color: rgba(250, 246, 238, 0.95) !important;
+  border-bottom: 1px solid var(--ba-gold-soft);
+}
+
+/* --- 글 카드 --- */
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  background: var(--ba-card) !important;
+  border-radius: 14px;
+  border: 1px solid var(--ba-border);
+  box-shadow: 0 1px 3px rgba(45, 55, 48, 0.04);
+}
+
+/* 제목 */
+.post-title,
+.post-title a,
+.post-title a:visited,
+.post-title a:hover {
+  color: var(--ba-ink) !important;
+  font-family: var(--ba-font) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
+}
+
+/* 본문 가독성 */
+.post-body {
+  font-family: var(--ba-font);
+  font-size: 16.5px;
+  line-height: 1.85;
+  color: var(--ba-ink);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.post-body p {
+  margin: 0 0 1.05em;
+}
+.post-body h2 {
+  font-size: 1.4em;
+  line-height: 1.4;
+  margin: 2em 0 0.5em;
+  padding-bottom: 0.3em;
+  border-bottom: 2px solid var(--ba-gold);
+  color: var(--ba-ink);
+}
+.post-body h3 {
+  font-size: 1.15em;
+  margin: 1.5em 0 0.4em;
+  color: var(--ba-sage-dark);
+}
+
+/* 링크 */
+.post-body a,
+a {
+  color: var(--ba-sage-dark);
+}
+.post-body a:hover {
+  color: var(--ba-gold);
+}
+
+/* 파이프라인 글(.ba-post) 요약 박스·표 보강 */
+.ba-post blockquote {
+  background: #f4f7f4 !important;
+  border: 1px solid #c5d4c3 !important;
+  border-left: 4px solid var(--ba-sage) !important;
+  border-radius: 12px !important;
+}
+.ba-post table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.ba-post th {
+  background: #f0f4ef !important;
+  border-color: var(--ba-border) !important;
+  color: var(--ba-ink);
+}
+.ba-post td {
+  border-color: var(--ba-border) !important;
+}
+.ba-post img {
+  border-radius: 10px;
+}
+
+/* 점프 링크(더 보기) */
+.jump-link a {
+  color: var(--ba-sage-dark) !important;
+  font-weight: 600;
+}
+
+/* --- 사이드바 --- */
+.sidebar-container {
+  background-color: var(--ba-cream) !important;
+}
+.sidebar .widget {
+  background: var(--ba-card);
+  border-radius: 12px;
+  border: 1px solid var(--ba-border);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+.sidebar .widget h2,
+.sidebar .title {
+  color: var(--ba-sage-dark) !important;
+  font-family: var(--ba-font);
+  font-weight: 700;
+  border-bottom: 1px solid var(--ba-gold-soft);
+  padding-bottom: 6px;
+}
+
+/* 라벨 태그 */
+.list-label-widget-content a,
+.label-size a {
+  background: #f0f4ef;
+  border-radius: 999px;
+  padding: 2px 10px;
+  color: var(--ba-sage-dark) !important;
+}
+
+/* --- 푸터·어트리뷰션 --- */
+.footer,
+#footer-wrapper {
+  color: var(--ba-muted);
+}
+
+/* --- 모바일 --- */
+@media (max-width: 800px) {
+  #page_body .FeaturedPost,
+  .Blog .blog-posts .post-outer-container {
+    padding: 20px 18px !important;
+    border-radius: 10px;
+  }
+  .post-body {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  .post-title a {
+    font-size: 1.35em !important;
+  }
+  .ba-post table {
+    font-size: 0.88em;
+  }
+}
